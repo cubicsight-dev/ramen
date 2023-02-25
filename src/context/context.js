@@ -1,16 +1,22 @@
-import { Children, createContext, useState } from "react";
 
-export const GlobalData = createContext(null);
+import { Children, createContext, useContext, useState } from "react";
+
+export const GlobalDataContext = createContext({
+    globalData: undefined,
+    setGlobalData: async (data) => null
+});
+
+export const useGlobalData = () => useContext(GlobalDataContext)
 
 const Context = ({ children }) => {
-  const [data, setData] = useState({
-    isMobileMenuOpen: false,
-  });
-  return (
-    <GlobalData.Provider value={{ data, setData }}>
-      {children}
-    </GlobalData.Provider>
-  );
+    const [globalData, setGlobalData] = useState({
+        company: {},
+    });
+    return (
+        <GlobalDataContext.Provider value={{ globalData, setGlobalData }}>
+            {children}
+        </GlobalDataContext.Provider>
+    );
 };
 
 export default Context;

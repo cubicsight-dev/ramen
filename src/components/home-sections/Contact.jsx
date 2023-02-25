@@ -1,8 +1,19 @@
 import { GoLocation } from "react-icons/go";
 import { FaRegClock } from "react-icons/fa";
 import { BsTelephone } from "react-icons/bs";
+import { useGlobalData } from "@/context/context";
 
 export const Contact = () => {
+    const {globalData, setGlobalData} = useGlobalData()
+    const { company: {
+        location = '', 
+        mobile_number = '', 
+        opening_hours = [],
+        facebook_link = '',
+        instagram_link = '',
+        twitter_link = '',
+        youtube_link = '',
+    }} = globalData
   return (
     <section id="contact" className="bg-black">
       <div className="custom-container py-10">
@@ -16,47 +27,48 @@ export const Contact = () => {
               <li className="mb-4 flex gap-3">
                 <GoLocation className="text-2xl" />
                 <p className="w-3/4">
-                  Corniche Rd Radisson Blu Hotel & Resort, Abu Dhabi, UAE
+                  {location}
                 </p>
               </li>
               <li className="mb-4 flex items-center gap-3">
                 <FaRegClock className="text-2xl" />
                 <div>
-                  <p>Monday - Friday 11am to 11:30pm</p>
-                  <p>Saturday - Sunday 12am to 12:30pm</p>
+                    {opening_hours.map(({opening_hours}, key) => (<p key={key}>{opening_hours}</p>))}
+                  {/* <p>Monday - Friday 11am to 11:30pm</p>
+                  <p>Saturday - Sunday 12am to 12:30pm</p> */}
                 </div>
               </li>
               <li className="mb-4 flex gap-3">
                 <BsTelephone className="text-2xl" />
-                <p> 000 000 0000</p>
+                <p>{mobile_number}</p>
               </li>
               <li className="mt-10 flex gap-5">
-                <a href="https://www.facebook.com" target="_blank">
+                <a href={facebook_link} target="_blank">
                   <img
                     className="w-8"
                     src="./social-media-icons/facebook.png"
-                    alt="https://www.facebook.com"
+                    alt={facebook_link}
                   />
                 </a>
-                <a href="https://www.instagram.com" target="_blank">
+                <a href={instagram_link} target="_blank">
                   <img
                     className="w-8"
                     src="./social-media-icons/instagram.png"
-                    alt="https://www.instagram.com"
+                    alt={instagram_link}
                   />
                 </a>
-                <a href="https://www.twitter.com" target="_blank">
+                <a href={twitter_link} target="_blank">
                   <img
                     className="w-8"
                     src="./social-media-icons/twitter.png"
-                    alt="https://www.twitter.com"
+                    alt={twitter_link}
                   />
                 </a>
-                <a href="https://www.youtube.com" target="_blank">
+                <a href={youtube_link} target="_blank">
                   <img
                     className="w-8"
                     src="./social-media-icons/youtube.png"
-                    alt="https://www.youtube.com"
+                    alt={youtube_link}
                   />
                 </a>
               </li>
