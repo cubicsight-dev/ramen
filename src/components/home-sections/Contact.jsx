@@ -13,7 +13,7 @@ export const Contact = () => {
         instagram_link = '',
         twitter_link = '',
         youtube_link = '',
-    }} = globalData
+    }} = globalData ?? {}
   return (
     <section id="contact" className="bg-black">
       <div className="custom-container py-10">

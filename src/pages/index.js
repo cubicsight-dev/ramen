@@ -15,6 +15,7 @@ import { useGlobalData } from "@/context/context";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({company}) {
+    console.log(process.env.NEXT_PUBLIC_API_URL)
     const {globalData, setGlobalData} = useGlobalData()
     useEffect(() => {
         setGlobalData({...globalData, company})
