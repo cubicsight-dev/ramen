@@ -5,7 +5,9 @@ import { useGlobalData } from "@/context/context";
 
 export const Contact = () => {
     const {globalData, setGlobalData} = useGlobalData()
-    const { company: {
+    const { company = {}, cmsPath = ''} = globalData
+
+    const {
         location = '', 
         mobile_number = '', 
         opening_hours = [],
@@ -13,7 +15,12 @@ export const Contact = () => {
         instagram_link = '',
         twitter_link = '',
         youtube_link = '',
-    }} = globalData ?? {}
+        store_img = ''
+    } = company
+
+    let storeImg = store_img?.data?.attributes?.url ?? ''
+    storeImg = `${cmsPath}${storeImg}`
+    // console.log(storeImg)
   return (
     <section id="contact" className="bg-black">
       <div className="custom-container py-10">
@@ -77,7 +84,7 @@ export const Contact = () => {
           <div className="w-9/12 md:w-1/2">
             <img
               className="mx-auto w-3/4"
-              src="./home/contact/contact-bg.jpg"
+              src={storeImg}
               alt=""
             />
           </div>

@@ -1,24 +1,23 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import { Hero } from "@/components/home-sections/Hero";
-import { Menu } from "@/components/home-sections/Menu";
+import { Menu } from "@/components/home-sections/menu/Menu";
 import { HowWeDo } from "@/components/home-sections/HowWeDo";
 import { Testimonial } from "@/components/home-sections/Testimonial";
 import { Contact } from "@/components/home-sections/Contact";
 import axiosInstance from "@/utilities/axiosInstance";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useGlobalData } from "@/context/context";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({company}) {
-    console.log(process.env.NEXT_PUBLIC_API_URL)
+export default function Home({company = {}, menus = [], headings = {}}) {
+    const { main_desc = ''} = headings
+    console.log(main_desc)
     const {globalData, setGlobalData} = useGlobalData()
     useEffect(() => {
-        setGlobalData({...globalData, company})
+        setGlobalData({...globalData, ...{company, cmsPath:process.env.NEXT_PUBLIC_API_URL} })
     },[company])
     return (
         <>
@@ -28,8 +27,8 @@ export default function Home({company}) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Hero />
-            <Menu />
+            <Hero data={{main_desc}} />
+            <Menu data={menus}/>
             <HowWeDo />
             <Testimonial />
             <Contact />
@@ -39,11 +38,34 @@ export default function Home({company}) {
 }
 
 export async function getStaticProps() {
-    const response = await axiosInstance.get('company?populate=*')
-    const { data: { attributes = {} }} = response?.data ?? {}
+    let attributes = {}
+    try {
+        const response = await axiosInstance.get('company?populate=*')
+        attributes = response?.data?.data?.attributes ?? {}
+    } catch (error) {
+        
+    }
+
+    let menus = {}
+    try {
+        const response = await axiosInstance.get('menus?populate=*,dish.dish_img')
+        menus = response?.data?.data ?? {}
+    } catch (error) {
+        
+    }
+
+    let headings = {}
+    try {
+        const response = await axiosInstance.get('heading?populate=*')
+        headings = response?.data?.data?.attributes ?? {}
+    } catch (error) {
+        
+    }
     return {
         props: {
-            company: attributes
+            company: attributes,
+            menus,
+            headings
         },
         revalidate: 10
     }

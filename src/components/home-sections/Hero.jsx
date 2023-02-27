@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Hero = () => {
+export const Hero = ({data:{main_desc = ''} = {}}) => {
   return (
     <section
       id="hero"
@@ -13,9 +13,10 @@ export const Hero = () => {
             We’re Crazy About <span className="text-red-700">Ramen!</span>
           </h1>
           <p className="mb-5 text-center text-lg sm:text-left">
-            <span className="text-3xl font-semibold">JINYA</span> is known for
+            {/* <span className="text-3xl font-semibold">JINYA</span> is known for
             its slow-cooked approach to ramen, made from broths simmered for 20
-            hours in-house.
+            hours in-house. */}
+            {main_desc}
           </p>
           <a
             href="#menu"
