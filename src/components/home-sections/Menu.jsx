@@ -1,14 +1,21 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 export const Menu = () => {
   return (
     <section id="menu" className="menu scroll-mt-10">
-      <div className="custom-container py-10">
-        <h2 className="mb-8 text-center text-xl font-semibold uppercase">
+      <div className="custom-container py-10 overflow-hidden">
+        <h2
+            className="mb-8 text-center text-xl font-semibold uppercase">
           Our Menu
         </h2>
         <div className="menu-group py-5">
-          <h1 className="mb-4 text-3xl font-bold text-red-700">Ramen</h1>
+          <motion.h1 
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            exit={{ x: -100, opacity: 0}}
+            transition={{delay: .7}}
+          className="mb-4 text-3xl font-bold text-red-700">Ramen</motion.h1>
           <ul className="menu-list flex flex-wrap justify-center gap-5">
             <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
               <div className="relative overflow-hidden">

@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
@@ -9,22 +9,42 @@ export const Hero = () => {
     >
       <div className="custom-container flex min-h-screen flex-col-reverse items-center justify-center gap-6 py-10 sm:flex-row">
         <div className="w-full sm:w-1/2">
-          <h1 className="mb-8 text-center text-3xl font-semibold sm:text-left md:text-5xl">
+          <motion.h1 
+            initial={{opacity: 0,y: 15}}
+            animate={{opacity: 1,y: 0}}
+            exit={{opacity: 0,y: 15}}
+            transition={{delay: .5,default: { ease: "linear" }}}
+            className="mb-8 text-center text-3xl font-semibold sm:text-left md:text-5xl">
             We’re Crazy About <span className="text-red-700">Ramen!</span>
-          </h1>
-          <p className="mb-5 text-center text-lg sm:text-left">
+          </motion.h1>
+          <motion.p 
+          initial={{opacity: 0,y: 15}}
+          animate={{opacity: 1,y: 0}}
+          exit={{opacity: 0,y: 15}}
+          transition={{delay: .6,default: { ease: "linear" }}}
+          className="mb-5 text-center text-lg sm:text-left">
             <span className="text-3xl font-semibold">JINYA</span> is known for
             its slow-cooked approach to ramen, made from broths simmered for 20
             hours in-house.
-          </p>
-          <a
+          </motion.p>
+          <motion.a
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          exit={{opacity: 0}}
+          transition={{delay: .5}}
             href="#menu"
             className="mx-auto flex w-max rounded-md border-2 border-solid border-red-700 bg-transparent p-2 text-lg transition delay-100  duration-300 ease-in-out hover:bg-red-700 sm:mx-0 sm:block"
           >
             View our menu
-          </a>
+          </motion.a>
         </div>
-        <img src="./home/hero/ramen.png" alt="" className="w-1/2" />
+        <motion.img 
+            initial={{opacity: 0,scale: .5}}
+            animate={{opacity: 1,scale: 1}}
+            // animate={{opacity: 1,scale: [1.1, 1, .8, 1]}}
+            exit={{opacity: 0,scale: .5}}
+            transition={{delay: .7, duration: .4}}
+            src="./home/hero/ramen.png" alt="" className="w-1/2" />
       </div>
     </section>
   );
