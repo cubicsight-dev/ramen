@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export const HowWeDo = () => {
   return (
     <section
@@ -8,19 +10,33 @@ export const HowWeDo = () => {
       <div className="custom-container py-10">
         <div className="flex flex-col gap-5 md:flex-row">
           <div className="my-auto w-full text-center md:w-1/2 md:text-left">
-            <h2 className="mb-4 h-max text-4xl">
+            <motion.h2 
+                initial={{ opacity: 0, translateX: -50 }}
+                whileInView={{ opacity: 1, translateX: 0 }}
+                viewport={{ once: true }}
+                transition={{delay: .5}}
+                className="mb-4 h-max text-4xl">
               Fresh Ingredients,{" "}
               <span className="font-semibold italic text-red-700">
                 Superior
               </span>{" "}
               Quality
-            </h2>
-            <p>
+            </motion.h2>
+            <motion.p
+                initial={{ opacity: 0, translateX: -50 }}
+                whileInView={{ opacity: 1, translateX: 0 }}
+                viewport={{ once: true }}
+                transition={{delay: .8}}
+            >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat
               corporis eveniet, itaque aut eligendi quas?
-            </p>
+            </motion.p>
           </div>
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{delay: 1, duration: .6}}
             className="mx-auto w-10/12 border-t-8 border-solid border-red-700 md:w-1/2"
             src="./home/how-we-do/video-how-we-do.jpg"
             alt=""

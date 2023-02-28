@@ -1,5 +1,87 @@
 import { motion } from "framer-motion";
+const ramenList = [
+    {
+        name: 'Chicken Ramen',
+        ingr: 'Ingredients: chicken broth: chicken chashu, spinach, green onion and fried onion » served with thin noodles.',
+        price: '99.00',
+        img: './home/menu/ramen/chicken.jpg'
+    },
+    {
+        name: 'Spicy Chicken Ramen',
+        ingr: 'Ingredients: chicken broth: chicken chashu, spinach, spicy bean sprouts and green onion » served with thin noodles (Choose your spice level, MILD, SPICY or HOT).',
+        price: '99.00',
+        img: './home/menu/ramen/spicy-chicken.jpg'
+    },
+    {
+        name: 'Gluten Free Ramen',
+        ingr: 'Choose one broth from tonkotsu, chicken or vegan. Choose one protein from tofu, chicken chashu or plant-based meat. Choose two toppings from kikurage, spinach, corn, mushroom, broccoli or bok choy.',
+        price: '99.00',
+        img: './home/menu/ramen/gluten-free.png'
+    },
+    {
+        name: 'Tonkotsu Black',
+        ingr: 'Ingredients: pork broth: pork chashu, kikurage, green onion, nori dried seaweed, seasoned egg*, garlic chips, garlic oil, fried onion and spicy sauce » served with thin noodles.',
+        price: '99.00',
+        img: './home/menu/ramen/tonkuotsu-black.jpg'
+    },
+    {
+        name: 'Tonkotsu Spicy',
+        ingr: 'Ingredients: pork broth: pork chashu, spicy bean sprouts, kikurage, green onion and spicy sauce » served with thick noodles (choose your spice level, MILD, SPICY or HOT)',
+        price: '99.00',
+        img: './home/menu/ramen/tonkotsu-spicy.jpg'
+    },
+    {
+        name: 'Yuzu Shio Delight',
+        ingr: 'Ingredients: Chicken & pork clear broth: pork chashu, green onion, spinach, seasoned egg*, nori seaweed with yuzu flavor. Served with thin noodles.',
+        price: '99.00',
+        img: './home/menu/ramen/yuzo-shio.jpg'
+    },
+    {
+        name: 'Shrimp Wonton Ramen',
+        ingr: 'Ingredients: pork and shrimp broth: shrimp & chicken wonton, green onion and kikurage » served with thick noodles.',
+        price: '99.00',
+        img: './home/menu/ramen/shrimp-wonton.png'
+    }
+]
 
+const sideDishList = [
+    {
+        name: 'Pork Gyoza',
+        ingr: '',
+        price: '99.00',
+        img: './home/menu/sides/gyoza.png'
+    },
+    {
+        name: 'Bun',
+        ingr: 'Ingredients: steamed bun stuffed with slow-braised pork chashu, cucumber and baby mixed greens served with  original bun sauce and Kewpie mayonnaise.',
+        price: '99.00',
+        img: './home/menu/sides/bun.png'
+    },
+    {
+        name: 'Caramelized Cauliflower',
+        ingr: 'Ingredients: caramelized cauliflower with toasted pine nuts, crispy mint leaves, and lime sauce.',
+        price: '99.00',
+        img: './home/menu/sides/caramelizedcauliflower.jpg'
+    },
+    {
+        name: 'Crispy Chicken',
+        ingr: 'juicy fried chicken thigh served with mixed baby greens and  original ponzu sauce',
+        price: '99.00',
+        img: './home/menu/sides/crispychicken.jpg'
+    },
+    {
+        name: 'KOBE Hamburger Steak',
+        ingr: 'Japanese style hamburger steak with KOBE beef and Arabiki pork. stewed with tomato sauce. garnish melted stretchy colby cheese.',
+        price: '99.00',
+        img: './home/menu/sides/kobesteak.png'
+    },
+    {
+        name: 'Spicy Creamy Shrimp Tempura',
+        ingr: 'crispy shrimp tempura tossed in  original spicy mayonnaise done in the classic “ebi-mayo” style',
+        price: '99.00',
+        img: './home/menu/sides/spicycreamyshrimptempura.jpg'
+    },
+]
 export const Menu = () => {
   return (
     <section id="menu" className="menu scroll-mt-10">
@@ -10,245 +92,61 @@ export const Menu = () => {
         </h2>
         <div className="menu-group py-5">
           <motion.h1 
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            initial={{opacity: 0 }}
+            whileInView={{opacity: 1 }}
+            exit={{opacity: 0}}
             viewport={{ once: true }}
-            exit={{ x: -100, opacity: 0}}
-            transition={{delay: .7}}
+            transition={{delay: .3}}
           className="mb-4 text-3xl font-bold text-red-700">Ramen</motion.h1>
           <ul className="menu-list flex flex-wrap justify-center gap-5">
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/ramen/chicken.jpg" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    chicken broth: chicken chashu, spinach, green onion and
-                    fried onion » served with thin noodles.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">
-                Chicken Ramen
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/ramen/spicy-chicken.jpg" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    chicken broth: chicken chashu, spinach, spicy bean sprouts
-                    and green onion » served with thin noodles (Choose your
-                    spice level, MILD, SPICY or HOT).
-                  </p>
-                </div>
-              </div>
-              <h3 className="mb-2 max-w-max text-lg group-hover:text-red-700">
-                Spicy Chicken Ramen
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/ramen/gluten-free.png" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    Choose one broth from tonkotsu, chicken or vegan. Choose one
-                    protein from tofu, chicken chashu or plant-based meat.
-                    Choose two toppings from kikurage, spinach, corn, mushroom,
-                    broccoli or bok choy.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mb-2 max-w-max text-lg group-hover:text-red-700">
-                Gluten Free Ramen
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/ramen/tonkuotsu-black.jpg" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    pork broth: pork chashu, kikurage, green onion, nori dried
-                    seaweed, seasoned egg*, garlic chips, garlic oil, fried
-                    onion and spicy sauce » served with thin noodles.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mb-2 max-w-max text-lg group-hover:text-red-700">
-                Tonkotsu Black
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/ramen/tonkotsu-spicy.jpg" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    pork broth: pork chashu, spicy bean sprouts, kikurage, green
-                    onion and spicy sauce » served with thick noodles (choose
-                    your spice level, MILD, SPICY or HOT)
-                  </p>
-                </div>
-              </div>
-              <h3 className="mb-2 max-w-max text-lg group-hover:text-red-700">
-                Tonkotsu Spicy
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/ramen/yuzo-shio.jpg" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    Chicken & pork clear broth: pork chashu, green onion,
-                    spinach, seasoned egg*, nori seaweed with yuzu flavor.
-                    Served with thin noodles.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mb-2 max-w-max text-lg group-hover:text-red-700">
-                Yuzu Shio Delight
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/ramen/shrimp-wonton.png" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    pork and shrimp broth: shrimp & chicken wonton, green onion
-                    and kikurage » served with thick noodles.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mb-2 max-w-max text-lg group-hover:text-red-700">
-                Shrimp Wonton Ramen
-              </h3>
-              <span>99.00AED</span>
-            </li>
+           {ramenList.map(({ name = '', ingr = '', price = '', img = ''}, key) => (
+                <motion.li 
+                    initial={{opacity: 0, translateX: -50, translateY: -50}}
+                    whileInView={{opacity: 1, translateX: 0, translateY: 0}}
+                    transition={{delay: key*0.2, duration: 0.3}}
+                    viewport={{ once: true }}
+                    key={key} 
+                    className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
+                    <div className="relative overflow-hidden">
+                        <img src={img} alt={name} />
+                        <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
+                            <p className="text-sm">{ingr}</p>
+                        </div>
+                    </div>
+                    <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">{name}</h3>
+                    <span>{price}AED</span>
+                </motion.li>
+           ))}
           </ul>
         </div>
         <div className="menu-group py-5">
-          <h1 className="mb-4 text-3xl font-bold text-red-700">Side Dish</h1>
+          <motion.h1 
+            initial={{opacity: 0 }}
+            whileInView={{opacity: 1 }}
+            exit={{opacity: 0}}
+            viewport={{ once: true }}
+            transition={{delay: .3}}
+            className="mb-4 text-3xl font-bold text-red-700">Side Dish</motion.h1>
           <ul className="menu-list flex flex-wrap justify-center gap-5">
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/sides/gyoza.png" alt="" />
-              </div>
-              <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">
-                Pork Gyoza
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/sides/bun.png" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    steamed bun stuffed with slow-braised pork chashu, cucumber
-                    and baby mixed greens served with JINYA’s original bun sauce
-                    and Kewpie mayonnaise.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">
-                Bun
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img
-                  src="./home/menu/sides/caramelizedcauliflower.jpg"
-                  alt=""
-                />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    <span className="font-semibold underline">
-                      Ingredients:
-                    </span>{" "}
-                    caramelized cauliflower with toasted pine nuts, crispy mint
-                    leaves, and lime sauce.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">
-                Caramelized Cauliflower
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/sides/crispychicken.jpg" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    juicy fried chicken thigh served with mixed baby greens and
-                    JINYA’s original ponzu sauce
-                  </p>
-                </div>
-              </div>
-              <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">
-                Crispy Chicken
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img src="./home/menu/sides/kobesteak.png" alt="" />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    Japanese style hamburger steak with KOBE beef and Arabiki
-                    pork. stewed with tomato sauce. garnish melted stretchy
-                    colby cheese.
-                  </p>
-                </div>
-              </div>
-              <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">
-                KOBE Hamburger Steak
-              </h3>
-              <span>99.00AED</span>
-            </li>
-            <li className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
-              <div className="relative overflow-hidden">
-                <img
-                  src="./home/menu/sides/spicycreamyshrimptempura.jpg"
-                  alt=""
-                />
-                <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
-                  <p className="text-sm">
-                    crispy shrimp tempura tossed in JINYA’s original spicy
-                    mayonnaise done in the classic “ebi-mayo” style
-                  </p>
-                </div>
-              </div>
-              <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">
-                Spicy Creamy Shrimp Tempura
-              </h3>
-              <span>99.00AED</span>
-            </li>
+            {sideDishList.map(({ name = '', ingr = '', price = '', img = ''}, key) => (
+                <motion.li 
+                    initial={{opacity: 0, translateX: -50, translateY: -50}}
+                    whileInView={{opacity: 1, translateX: 0, translateY: 0}}
+                    transition={{delay: key*0.2, duration: 0.3}}
+                    viewport={{ once: true }}
+                    key={key} 
+                    className="menu-item group w-10/12 sm:w-2/5 md:w-1/4">
+                    <div className="relative overflow-hidden">
+                        <img src={img} alt={name} />
+                        {ingr &&
+                        <div className="menu-item-desc translate-y-full group-hover:translate-y-0">
+                            <p className="text-sm">{ingr}</p>
+                        </div>}
+                    </div>
+                    <h3 className="mt-2 max-w-max text-lg group-hover:text-red-700">{name}</h3>
+                    <span>{price}AED</span>
+                </motion.li>
+            ))}
           </ul>
         </div>
       </div>

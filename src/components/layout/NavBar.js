@@ -36,7 +36,7 @@ const NavBar = () => {
         initial={{opacity: 0,y: -100}}
         animate={{opacity: 1,y: 0}}
         exit={{opacity: 0,y: 0}}
-        // transition={{delay: .3}}
+        transition={{delay: 1.2 }}
       className={`
             fixed top-0 left-0 z-10 w-full py-4 transition delay-100 duration-300 ease-in-out
             ${

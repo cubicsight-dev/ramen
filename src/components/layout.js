@@ -11,10 +11,13 @@ export default function layout({ children }) {
             
                 <motion.main 
                     key={'main'}
-                    initial={{opacity: 0}}
+                    /* initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     exit={{ opacity: 0}}
-                    transition={{delay: .2, duration: .2}}
+                    transition={{delay: .2, duration: .2}} */
+                    initial={{clipPath: 'circle(0% at 50% 8%)'}}
+                    animate={{clipPath: 'circle(200% at 100% 100%)'}}
+                    transition={{delay: .3, duration: 1.5}}
                     className={`${poppins.variable} bg-black font-poppins`}>
                     {children}
                 </motion.main>
