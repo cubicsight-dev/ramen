@@ -23,7 +23,7 @@ export const Hero = () => {
           exit={{opacity: 0,y: 15}}
           transition={{delay: 1,default: { ease: "linear" }}}
           className="mb-5 text-center text-lg sm:text-left">
-            <span className="text-3xl font-semibold">JINYA</span> is known for
+            <span className="text-3xl font-semibold">Name</span> is known for
             its slow-cooked approach to ramen, made from broths simmered for 20
             hours in-house.
           </motion.p>
